@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <style>
+            #logger {
+                background: #000;
+                color: #fff;
+                padding: 10px;
+                height: 10em;
+                overflow: auto;
+                margin-top: 5px;
+            }
+        </style>
+        <script src="../ConsoleEvents.js"></script>
+    </head>
+    <body>
+        <input type="text" id="msg" /><button id="log">Log</button>
+        <div id="logger"></div>
+        
+        <script>
+            document.getElementById('log').onclick = function () {
+                console.log(document.getElementById('msg').value);
+            };
+            console.on('log', function (msg) {
+                var line = "<div><strong>" + Date() + "</strong>: " + msg + "</div>";
+                document.getElementById('logger').innerHTML += line;
+            });
+        </script>
+    </body>
+</html>
