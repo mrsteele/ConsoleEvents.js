@@ -1,21 +1,25 @@
-# ConsoleEvents.js
+# Listenable.js
 Listen to the console
 
-### What is ConsoleEvents.js?
+### What is Listenable.js?
 
-ConsoleEvents.js allows you to listen to the console for whenever something happens.
-This is done by wrapping around the original console and firing events between console commands.
+Listenable.js allows you to listen to any object for whenever any function fires.
+This is done by wrapping around the original object and firing events between commands.
 
-### How do I listen tot he console?
+### How do I listen to an object?
 
 Easy!
 
 ```
+// first apply the listener...
+Listenable(console)
+
+// then wait for events...
 console.on("log", function (msg) {
     alert('The console says: ' + msg);
 });
 ```
 
-### Why does only the log function work right now?
+### I wanna contribute
 
-I only made this in 30 minutes, I plan to do more with this but as of right now it is a proof of concept. If you want to do more with it feel free to do a pull request :).
+Yes please! Pull request and code away!
