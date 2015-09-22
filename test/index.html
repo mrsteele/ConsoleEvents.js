@@ -10,16 +10,20 @@
                 margin-top: 5px;
             }
         </style>
-        <script src="../ConsoleEvents.js"></script>
+        <script src="../Listenable.js"></script>
     </head>
     <body>
         <input type="text" id="msg" /><button id="log">Log</button>
         <div id="logger"></div>
         
         <script>
+            // lets listen to the console
+            Listenable(console);
+            
             document.getElementById('log').onclick = function () {
                 console.log(document.getElementById('msg').value);
             };
+            
             console.on('log', function (msg) {
                 var line = "<div><strong>" + Date() + "</strong>: " + msg + "</div>";
                 document.getElementById('logger').innerHTML += line;
