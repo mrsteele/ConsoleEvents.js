@@ -13,20 +13,39 @@
         <script src="../Listenable.js"></script>
     </head>
     <body>
-        <input type="text" id="msg" /><button id="log">Log</button>
+        console.log(<input type="text" id="msg" />) <button id="log">Log</button>
+        console.test = <input type="text" id="test" /> <button id="testIt">Test</button>
         <div id="logger"></div>
         
         <script>
+            
+            // simple helper...
+            var el = function(id) {
+                return document.getElementById(id);
+            };
+            
             // lets listen to the console
             Listenable(console);
             
-            document.getElementById('log').onclick = function () {
-                console.log(document.getElementById('msg').value);
+            // log events on button click
+            el('log').onclick = function () {
+                console.log(el('msg').value);
             };
             
+            // listen to log fires
             console.on('log', function (msg) {
                 var line = "<div><strong>" + Date() + "</strong>: " + msg + "</div>";
-                document.getElementById('logger').innerHTML += line;
+                el('logger').innerHTML += line;
+            });
+            
+            // change the 'test' value
+            el('testIt').onclick = function () {
+                console.test = el('test').value;
+            };
+            
+            // listen for when the 'test' value changes
+            console.on('test', function (oldValue) {
+                console.log('"console.test" changed from "' + oldValue + '" to "' + console.test + '".');
             });
         </script>
     </body>

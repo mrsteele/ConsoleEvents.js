@@ -20,6 +20,21 @@ console.on("log", function (msg) {
 });
 ```
 
+You can also listen to property changes with the native `Object.observe`!
+
+```
+// the object to listen to
+var test = {msg: "hello"};
+
+// apply the listener
+Listenable(test);
+
+test.on("msg", function (oldValue) {
+    alert("'msg' changed from '" + oldValue + '" to '" + test.msg + "'!");
+});
+
+```
+
 ### I wanna contribute
 
 Yes please! Pull request and code away!

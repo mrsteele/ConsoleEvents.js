@@ -44,6 +44,13 @@
 
                     this._events[event].push(callback);
                 };
+                
+                // Listen for property changes
+                Object.observe(obj, function(changes) {
+                    changes.forEach(function(change) {
+                        obj._fire(change.name, [change.oldValue]);
+                    });
+                });
             }
         };
         
