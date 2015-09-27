@@ -1,0 +1,28 @@
+{
+  "name": "observe.js",
+  "version": "1.0.0",
+  "description": "True observation",
+  "main": "Gruntfile.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrsteele/observe.js.git"
+  },
+  "keywords": [
+    "observe",
+    "event",
+    "object",
+    "wrapper"
+  ],
+  "author": "Matthew Steele <matt@omnionline.us>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mrsteele/observe.js/issues"
+  },
+  "homepage": "https://github.com/mrsteele/observe.js#readme"
+}

@@ -1,6 +1,7 @@
 {
     "jslint.options": {
         "browser": true,
-        "nomen": true
+        "nomen": true,
+        "forin": true
     }
 }
