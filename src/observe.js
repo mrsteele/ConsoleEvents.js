@@ -1,11 +1,11 @@
 (function (global) {
     "use strict";
-    
+
     var methodName = "observe";
-    
+
     // only apply if not applied already
     if (!global[methodName]) {
-        
+
         /**
          * Observes changes to object properties, as well as 
          * listens to when any function is called.
@@ -22,10 +22,10 @@
                             return obj._originals[key].apply(obj, arguments);
                         };
                     };
-                
+
                 obj._events = {};
                 obj._originals = {};
-                
+
                 // grab functions and listen on them
                 for (key in obj) {
                     if (ignored.indexOf(key) === -1) {
@@ -35,7 +35,7 @@
                         }
                     }
                 }
-                
+
                 /**
                  * Fires off new events internally.
                  * @param {String} event - The event name (property name or function name).
@@ -49,7 +49,7 @@
                         }
                     }
                 };
-                
+
                 /**
                  * Sets up a listener event.
                  * @param {String} event - The event to listen for.
@@ -62,13 +62,16 @@
 
                     this._events[event].push(callback);
                 };
-                
+
+                /**
+                 * Observes default changes on the object.
+                 */
                 Object.observe(obj, function (changes) {
                     changes.forEach(function (change) {
                         obj._fire(change.name, [change.oldValue]);
                     });
                 });
-                
+
             }
         }; // end global[methodName]
     }
